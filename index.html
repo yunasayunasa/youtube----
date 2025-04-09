@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>グラブル風 バックパックバトル (プロトタイプ)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>バックパック</h1>
+
+    <!-- アイテムを最初に置いておく場所（アイテムパレット代わり） -->
+    <div id="item-source">
+        <p>ドラッグしてバックパックへ配置:</p>
+        <!-- データ属性でサイズ(w,h)や名前、回転可否などを指定 -->
+        <div class="item" draggable="true" data-w="1" data-h="2" data-name="ショートソード" style="width: 50px; height: 100px; background-color: lightcoral;">剣</div>
+        <div class="item" draggable="true" data-w="1" data-h="1" data-name="ダガー" style="width: 50px; height: 50px; background-color: lightblue;">短</div>
+        <div class="item" draggable="true" data-w="2" data-h="1" data-name="レザーアーマー" style="width: 100px; height: 50px; background-color: burlywood;">鎧</div>
+         <div class="item" draggable="true" data-w="2" data-h="2" data-name="ウォーアックス" style="width: 100px; height: 100px; background-color: lightslategray;">斧</div>
+    </div>
+
+    <hr>
+
+    <!-- バックパック本体 -->
+    <div id="backpack-grid-container">
+        <div id="backpack-grid">
+            <!-- グリッドセルはJSで生成 -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

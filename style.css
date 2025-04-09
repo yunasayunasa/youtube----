@@ -1,0 +1,59 @@
+/* ... (他のスタイルは前回と同じ) ... */
+
+/* 回転ボタン（例として追加） */
+.rotate-button {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 24px; /* 少し大きく */
+    height: 24px; /* 少し大きく */
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px; /* 少し大きく */
+    line-height: 24px; /* 中央揃え */
+    text-align: center;
+    cursor: pointer;
+    display: none; /* ★デフォルトは非表示 */
+    padding: 0;
+    /* タッチデバイスでも表示しやすく */
+    -webkit-tap-highlight-color: transparent; /* タップ時のハイライトを消す */
+}
+
+/* ★アイテムがタップされた（アクティブになった）時に表示するイメージ */
+/*   実際にはJSでクラスを付け外しして制御する方が確実 */
+/*   今回は簡易的に、ホバーとタッチで表示されることを期待 */
+.item:hover .rotate-button,
+.item.show-rotate .rotate-button { /* JSで .show-rotate クラスを付与 */
+    display: block;
+}
+
+/* 配置不可の表示 (変更なし) */
+.drag-over-invalid {
+    background-color: rgba(255, 0, 0, 0.3) !important;
+}
+
+/* ドラッグ中の要素のスタイル（タッチ操作時にも使用）*/
+.dragging {
+    opacity: 0.6;
+    cursor: grabbing;
+    pointer-events: none; /* ドラッグ中に下の要素のイベントを拾わないように */
+    z-index: 1000; /* 最前面に表示 */
+}
+
+/* タッチ操作中に一時的に表示するゴースト要素 */
+.touch-ghost {
+     position: fixed; /* 画面に固定 */
+     pointer-events: none; /* イベントを透過 */
+     z-index: 1000;
+     opacity: 0.7;
+}
+
+.touch-ghost {
+     position: fixed; /* 画面に固定 */
+     pointer-events: none; /* イベントを透過 */
+     z-index: 1000;
+     opacity: 0.7;
+     /* 元の要素と同じスタイルを適用するため、JSでcloneNode(true)を使う */
+}
